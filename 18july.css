@@ -1,0 +1,66 @@
+*{
+    background-color: bisque;
+    font-size: 20px;
+}
+
+h2{
+    color: chocolate;
+    font-size: 50px;
+}
+
+.keshav{
+    color: green;
+    font-size: 14px;
+}
+
+#Fahran{
+    color: blueviolet;
+}
+
+span{
+    color: black;
+    font-size: 32px;
+}
+
+
+h4,h5,h6{
+    color: cadetblue;
+}
+
+div p{
+    color: burlywood;
+}
+
+ul > li{
+    color: red;
+    list-style: none;
+}
+
+button:hover{
+    color: rebeccapurple;
+    background-color: red;
+    cursor: pointer;
+}
+button{
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 25%;
+}
+
+input[type="email"]{
+    background-color: blue;
+}
+
+.card{
+    background-color: blue;
+    color: bisque;
+    width: 400px;
+    height:200px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
