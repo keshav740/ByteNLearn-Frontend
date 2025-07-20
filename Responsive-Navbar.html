@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navigation Bar</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .navbar {
+        background-color: #333;
+        padding: 10px 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo img {
+        width: 40px;
+        border-radius: 25px;
+      }
+      .logo p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .menu-icon {
+        display: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+      }
+      #menu-toggle {
+        display: none;
+      }
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .menu-icon {
+          display: block;
+        }
+        .nav-links {
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: #333;
+          flex-direction: column;
+          width: 100%;
+          display: none;
+        }
+        .nav-links li {
+          text-align: center;
+          padding: 10px 0;
+        }
+        #menu-toggle:checked + .menu-icon + .nav-links {
+          display: flex;
+        }
+      }
+
+
+
+      /* Section Hero Started */
+
+
+      .hero{
+        position: relative;
+        background-image: url(./logo.png);
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        /* color: #fff; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+      .hero-content{
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+      }
+      .hero-content h1{
+        font-size: 48px;
+        margin-bottom: 25px;
+      }
+      .hero-content p{
+        font-size: 20px;
+        margin-top: 25px;
+      }
+      .hero-btn{
+        background-color: #ff6f00;
+        color: aliceblue;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+      .hero-btn:hover{
+        background-color: #e65100;
+      }
+
+      /* Responsive */
+
+
+      @media (max-width:768px){
+        .hero-content h1{
+            font-size: 32px;
+        }
+        .hero-content p{
+            font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="./logo.png" alt="" srcset="" />
+          <p>ByteNLearn</p>
+        </div>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul class="nav-links">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About Us</a>
+          </li>
+          <li>
+            <a href="#">Features</a>
+          </li>
+          <li>
+            <a href="#">Pricing</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section id="#Hero" class="hero">
+        <div class="hero-content">
+          <h1>Welcome to ByteNLearn</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil sed
+            sequi deserunt optio quos cumque ipsam nesciunt nisi harum ad? Nihil
+            aliquam at magni natus dicta nobis labore numquam ea!
+          </p>
+          <a href="#" class="hero-btn">Get Started</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
