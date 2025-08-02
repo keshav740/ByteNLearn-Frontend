@@ -135,16 +135,15 @@
         height: 100%;
       }
 
-      .services .service-item:hover{
-         border-bottom: 7px solid rgb(0, 140, 255);
+      .services .service-item:hover {
+        border-bottom: 7px solid rgb(0, 140, 255);
         transition: all ease-in-out 0.3s;
-
       }
 
-      .services .service-item a{
+      .services .service-item a {
         text-decoration: none;
       }
-      .services .service-item .icon{
+      .services .service-item .icon {
         color: blue;
         background: aqua;
         margin: 0;
@@ -158,28 +157,95 @@
         font-size: 25px;
         transition: all ease-in-out 0.3s;
       }
-       .services .service-item h3{
+      .services .service-item h3 {
         font-weight: 700;
         margin: 10px 0 15px 0;
         font-size: 22px;
         transition: all ease-in-out 0.3s;
-       }
+      }
 
-       .services .service-item p{
+      .services .service-item p {
         line-height: 24px;
         font-size: 14px;
         margin-bottom: 0;
-       }
+      }
 
-       @media (min-width:1365px){
-        .services .service-item:hover{
+      @media (min-width: 1365px) {
+        .services .service-item:hover {
           transform: translateY(-10px);
           border-color: rgb(0, 140, 255);
         }
-        .services .service-item:hover h3{
+        .services .service-item:hover h3 {
           color: rgb(0, 140, 255);
         }
-       }
+      }
+
+      .project-row .project-item img {
+        width: 100%;
+      }
+
+      .project-card{
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .project-card img{
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+      }
+      .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        padding: 15px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .project-card:hover .overlay{
+        opacity: 1;
+      }
+      .overlay-top{
+        align-items: center;
+        font-weight: bold;
+      }
+
+      .overlay-center{
+        text-align: center;
+      }
+      .overlay-center a{
+        display: inline-block;
+        margin: 0 10px;
+        color: white;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 50%;
+        transition: background 0.3s;
+      }
+
+      .overlay-center a:hover{
+        background: #0d6efd;
+      }
+
+      .overlay-bottom{
+        font-size: 14px;
+      }
+
+      .project-card:hover img{
+        transform: scale(1.20);
+      }
+
     </style>
   </head>
   <body>
@@ -542,6 +608,127 @@
                 debitis? Quisquam, earum harum.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Section -->
+
+    <section id="project" class="project">
+      <div class="container service-title" data-aos="fade-up">
+        <h2>Projects</h2>
+        <p>
+          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+          consectetur velit
+        </p>
+      </div>
+      <div class="container">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button
+              class="nav-link active"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+            >
+              Home
+            </button>
+            <button
+              class="nav-link"
+              id="nav-profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-profile"
+              type="button"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+            >
+              Profile
+            </button>
+            <button
+              class="nav-link"
+              id="nav-contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              Contact
+            </button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <div class="row project-row mt-3 pb-5">
+              <div class="col-md-4 project-item pt-3">
+              <div class="project-card">
+                <img src="./logo.png" alt="" />
+                <div class="overlay">
+                  <div class="overlay-top">
+                    App 1
+                  </div>
+                  <div class="overlay-center">
+                    <a href=""><i class="fa-brands fa-web-awesome"></i></a>
+                    <a href="/google.com"><i class="fa-brands fa-web-awesome"></i></a>
+                  </div>
+                  <div class="overlay-bottom">
+                    Add Description Here......
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            <div class="row project-row mt-3 pb-5">
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-contact"
+            role="tabpanel"
+            aria-labelledby="nav-contact-tab"
+          >
+          <div class="row project-row mt-3 pb-5">
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+           </div>
           </div>
         </div>
       </div>
