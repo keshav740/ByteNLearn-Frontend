@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      .navbar {
+        background-color: orangered;
+      }
+      .hero {
+        background: url(./logo.png);
+        height: 600px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+      }
+      .hero h2 {
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
+      .profile img {
+        width: 100%;
+      }
+      span {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .section-title {
+        align-items: center;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+
+      .resume .resume-title {
+        font-weight: 700;
+        font-size: 26px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .resume .resume-item {
+        padding: 0 0 20px 20px;
+        border-left: 2px solid aqua;
+        margin-top: -2px;
+        position: relative;
+      }
+      .resume .resume-item h5 {
+        line-height: 18px;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #666;
+      }
+      .resume .resume-item h6 {
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 5px 15px;
+      }
+
+      .resume .resume-item ul {
+        padding-bottom: 20px;
+      }
+
+      .resume .resume-item ul li {
+        padding-bottom: 10px;
+      }
+
+      .resume .resume-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .resume .resume-item::before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50px;
+        left: -9px;
+        top: 0;
+        background-color: aqua;
+        border: 2px solid aqua;
+      }
+
+      .service-title {
+        align-items: center;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+
+      .services .service-item {
+        background-color: white;
+        box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
+        padding: 60px 30px;
+        transition: all ease-in-out 0.3s;
+        border-radius: 18px;
+        height: 100%;
+      }
+
+      .services .service-item:hover {
+        border-bottom: 7px solid rgb(0, 140, 255);
+        transition: all ease-in-out 0.3s;
+      }
+
+      .services .service-item a {
+        text-decoration: none;
+      }
+      .services .service-item .icon {
+        color: blue;
+        background: aqua;
+        margin: 0;
+        width: 65px;
+        height: 65px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 25px;
+        transition: all ease-in-out 0.3s;
+      }
+      .services .service-item h3 {
+        font-weight: 700;
+        margin: 10px 0 15px 0;
+        font-size: 22px;
+        transition: all ease-in-out 0.3s;
+      }
+
+      .services .service-item p {
+        line-height: 24px;
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+
+      @media (min-width: 1365px) {
+        .services .service-item:hover {
+          transform: translateY(-10px);
+          border-color: rgb(0, 140, 255);
+        }
+        .services .service-item:hover h3 {
+          color: rgb(0, 140, 255);
+        }
+      }
+
+      .project-row .project-item img {
+        width: 100%;
+      }
+
+      .project-card{
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .project-card img{
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+      }
+      .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        padding: 15px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .project-card:hover .overlay{
+        opacity: 1;
+      }
+      .overlay-top{
+        align-items: center;
+        font-weight: bold;
+      }
+
+      .overlay-center{
+        text-align: center;
+      }
+      .overlay-center a{
+        display: inline-block;
+        margin: 0 10px;
+        color: white;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 50%;
+        transition: background 0.3s;
+      }
+
+      .overlay-center a:hover{
+        background: #0d6efd;
+      }
+
+      .overlay-bottom{
+        font-size: 14px;
+      }
+
+      .project-card:hover img{
+        transform: scale(1.20);
+      }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>I am Keshav Saini</h1>
+        <h2>Web Develper</h2>
+      </div>
+    </section>
+
+    <section class="about mt-5">
+      <div class="container bg-white shadow p-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6 profile">
+                <img src="./logo.png" alt="My Profile Picture" />
+              </div>
+              <div class="col-md-6">
+                <p><span>Name: </span>Morgan Freeman</p>
+                <p><span>Name: </span>Morgan Freeman</p>
+                <p><span>Name: </span>Morgan Freeman</p>
+                <p><span>Name: </span>Morgan Freeman</p>
+              </div>
+            </div>
+            <div class="skills py-5">
+              <h4>Skills</h4>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p>HTML</p>
+                  <p>100%</p>
+                </div>
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Basic example"
+                  aria-valuenow="100"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div class="progress-bar w-100"></div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p>HTML</p>
+                  <p>100%</p>
+                </div>
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Basic example"
+                  aria-valuenow="100"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div class="progress-bar w-100"></div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p>HTML</p>
+                  <p>100%</p>
+                </div>
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Basic example"
+                  aria-valuenow="100"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div class="progress-bar w-100"></div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p>HTML</p>
+                  <p>100%</p>
+                </div>
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Basic example"
+                  aria-valuenow="100"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div class="progress-bar w-100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 class="fw-900">About Me</h4>
+            <p class="pt-2">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla
+              dis? Eveniet eaabore nobis iure, nostrum iusto illum minus
+              voluptates cupiditate ex perspiciatis voluptatibus natus
+              doloremque amet quas dignissimos doloribus omnis veritatis. Est
+              impedit sed consequuntur animi dolorum? Consequuntur, blanditiis
+              eligendi qui quis excepturi dicta odit harum facilis assumenda
+              doloremque, est culpa voluptate dolores! Fuga aliquam delectus
+              cupiditate quia suscipit dignissimos atque, hic odio doloribus
+              odit eveniet a. Dolorem nobis ad quibusdam, aspernatur maiores et
+              corrupti, iste quae delectus officiis accusantium explicabo eaque
+              numquam accusamus, mollitia vero eum? Cupiditate incidunt eum
+              laudantium dolorum sequi laborum vero ducimus provident! Ipsam
+              tempora veritatis eius quia nemo eaque neque atque asperiores
+              perferendis ut ex pariatur nam, ea quam modi molestiae reiciendis.
+              Assumenda sunt reprehenderit aspernatur at maxime nostrum quae non
+              enim! Sequi, laudantium vero error consectetur ipsam iure
+              cupiditate dicta perferendis molestias quia tempora. Fugiat
+              deleniti est tempore aliquid fuga saepe eligendi amet accusantium
+              natus numquam, velit vitae tenetur similique alias. Earum
+              voluptates
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serction Resume -->
+
+    <section id="resume" class="resume section py-5">
+      <div class="container section-title">
+        <h2>Resume</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
+          dignissimos.
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item">
+              <h5>Keshav Saini</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Delectus cum voluptates dolore reprehenderit similique
+                asperiores, nobis esse accusantium, a repellat ea quo! Rerum,
+                enim aliquam commodi quia nihil necessitatibus adipisci.
+              </p>
+              <ul>
+                <li>Moradabad</li>
+                <li>86746782232</li>
+                <li>jchdhvcx@gmail.com</li>
+              </ul>
+            </div>
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h5>Master of Fine Arts & Graphic Design</h5>
+              <h6>2015 - 2016</h6>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa
+                corporis eaque nostrum reprehenderit obcaecati numquam inventore
+                laboriosam! Repudiandae error ipsam sunt minima, labore fugiat
+                ea eius possimus neque quas quod.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h5>Senior graphic design specialist</h5>
+              <h6>2019 - Present</h6>
+              <p>Experion, New York, NY</p>
+              <ul>
+                <li>
+                  Lead in the design, development, and implementation of the
+                  graphic, layout, and production communication materials
+                </li>
+                <li>
+                  Lead in the design, development, and implementation of the
+                  graphic, layout, and production communication materials
+                </li>
+                <li>
+                  Lead in the design, development, and implementation of the
+                  graphic, layout, and production communication materials
+                </li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h5>Graphic design specialist</h5>
+              <h6>2017 - 2018</h6>
+              <p>Stepping Stone Advertising, New York, NY</p>
+              <ul>
+                <li>
+                  Lead in the design, development, and implementation of the
+                  graphic, layout, and production communication materials
+                </li>
+                <li>
+                  Lead in the design, development, and implementation of the
+                  graphic, layout, and production communication materials
+                </li>
+                <li>
+                  Lead in the design, development, and implementation of the
+                  graphic, layout, and production communication materials
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service section -->
+
+    <section id="services" class="services section">
+      <div class="container service-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>
+          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+          consectetur velit
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="fa-brands fa-web-awesome"></i></div>
+              <a href="#" class="stretched-link">
+                <h3>Web Development</h3>
+              </a>
+              <p>
+                Lorem ipsum dolor sonsequatur vero, sint earum eligendi dolorem
+                debitis? Quisquam, earum harum.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-brands fa-web-awesome"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Web Development</h3>
+              </a>
+              <p>
+                Lorem ipsum dolor sonsequatur vero, sint earum eligendi dolorem
+                debitis? Quisquam, earum harum.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-brands fa-web-awesome"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Web Development</h3>
+              </a>
+              <p>
+                Lorem ipsum dolor sonsequatur vero, sint earum eligendi dolorem
+                debitis? Quisquam, earum harum.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-brands fa-web-awesome"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Web Development</h3>
+              </a>
+              <p>
+                Lorem ipsum dolor sonsequatur vero, sint earum eligendi dolorem
+                debitis? Quisquam, earum harum.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-brands fa-web-awesome"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Web Development</h3>
+              </a>
+              <p>
+                Lorem ipsum dolor sonsequatur vero, sint earum eligendi dolorem
+                debitis? Quisquam, earum harum.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-brands fa-web-awesome"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Web Development</h3>
+              </a>
+              <p>
+                Lorem ipsum dolor sonsequatur vero, sint earum eligendi dolorem
+                debitis? Quisquam, earum harum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Section -->
+
+    <section id="project" class="project">
+      <div class="container service-title" data-aos="fade-up">
+        <h2>Projects</h2>
+        <p>
+          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+          consectetur velit
+        </p>
+      </div>
+      <div class="container">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button
+              class="nav-link active"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+            >
+              Home
+            </button>
+            <button
+              class="nav-link"
+              id="nav-profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-profile"
+              type="button"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+            >
+              Profile
+            </button>
+            <button
+              class="nav-link"
+              id="nav-contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              Contact
+            </button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <div class="row project-row mt-3 pb-5">
+              <div class="col-md-4 project-item pt-3">
+              <div class="project-card">
+                <img src="./logo.png" alt="" />
+                <div class="overlay">
+                  <div class="overlay-top">
+                    App 1
+                  </div>
+                  <div class="overlay-center">
+                    <a href=""><i class="fa-brands fa-web-awesome"></i></a>
+                    <a href="/google.com"><i class="fa-brands fa-web-awesome"></i></a>
+                  </div>
+                  <div class="overlay-bottom">
+                    Add Description Here......
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            <div class="row project-row mt-3 pb-5">
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+              <div class="col-md-4 project-item pt-3">
+                <img src="./logo.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-contact"
+            role="tabpanel"
+            aria-labelledby="nav-contact-tab"
+          >
+          <div class="row project-row mt-3 pb-5">
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+            <div class="col-md-4 project-item pt-3"><img src="./logo.png" alt=""></div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
